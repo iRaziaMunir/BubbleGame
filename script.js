@@ -1,5 +1,5 @@
 
-var timer =10;
+var timer =60;
 var hit = 0;
 var score = 0;
 var ranNum;
