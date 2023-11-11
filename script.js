@@ -1,5 +1,5 @@
 
-var timer =60;
+var timer =10;
 var hit = 0;
 var score = 0;
 var ranNum;
@@ -42,8 +42,12 @@ function timerFun() {
             }
         else{
             clearInterval(timer);
-            document.querySelector("#panelBottom").innerHTML = ` <h>Game Over</h>`;
-            document.querySelector("#panelBottom").style.color= " green";
+
+            document.querySelector("#panelBottom").innerHTML =
+            `<div id ="endGame">
+             <h1>Game Over</h1>
+             <button class="btn" onclick="refreshPage()">Start New Game</button>
+            </div>`;
         }
     }, 1000);
 }
@@ -51,6 +55,9 @@ function timerFun() {
  function getNewHit() {
     hit = Math.floor(Math.random()*10);
         document.querySelector(".hitval").textContent = hit;
+ }
+ function refreshPage() {
+    location.reload();
  }
 
     timerFun();
