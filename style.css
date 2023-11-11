@@ -70,6 +70,6 @@ html,body{
     align-items: center;
 }
 #bubble:hover{
-    background-color: rgb(177, 56, 56);
+    background-color: rgb(26, 24, 24);
     cursor: pointer;
 }
