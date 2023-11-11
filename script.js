@@ -13,7 +13,6 @@ panel_bottom.addEventListener("click", function(details){
         increaseScore();
         makebubbles();
         getNewHit();  
-    
     }
 } );
 
