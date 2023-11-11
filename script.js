@@ -55,4 +55,4 @@ function timerFun() {
 
     timerFun();
     getNewHit();  
-    // makebubbles();
+    makebubbles();
