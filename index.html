@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,5 +28,71 @@
         </div>
     </div>
     <script src="./script.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Discussion Forum</h1>
+
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <h3>{{ topic['title'] }}</h3>
+                <p>Posted by: {{ topic['user'] }}</p>
+                <ul>
+                    {% for comment in topic['comments'] %}
+                        <li>{{ comment }}</li>
+                    {% endfor %}
+                </ul>
+                <form action="{{ url_for('new_comment', topic_id=topic['id']) }}" method="post">
+                    <input type="text" name="user" placeholder="Your Name" required>
+                    <textarea name="content" placeholder="Add a comment" required></textarea>
+                    <button type="submit">Add Comment</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Create a New Topic</h2>
+    <form action="{{ url_for('new_topic') }}" method="post">
+        <input type="text" name="user" placeholder="Your Name" required>
+        <input type="text" name="title" placeholder="Topic Title" required>
+        <textarea name="content" placeholder="Topic Content" required></textarea>
+        <button type="submit">Create Topic</button>
+    </form>
 </body>
 </html>
